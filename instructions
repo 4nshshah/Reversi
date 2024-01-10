@@ -1,0 +1,48 @@
+Hello! 
+Before you start, there are a few things you should keep in mind...
+
+This is a two person game and you have to take turns to play your moves.
+To play your move, there is a fixed way to instruct the computer to place your piece.
+
+This is how the board would look at the start of each game:
+
+   1  2  3  4  5  6  7  8  
+a  .  .  .  .  .  .  .  .  
+b  .  .  .  .  .  .  .  .  
+c  .  .  .  .  .  .  .  .  
+d  .  .  .  O  @  .  .  .  
+e  .  .  .  @  O  .  .  .  
+f  .  .  .  .  .  .  .  .  
+g  .  .  .  .  .  .  .  .  
+h  .  .  .  .  .  .  .  . 
+
+The rows are marked alphabetically, from a to h, while the columns are marked numerically, from 1 to 8.
+When you enter your move, you have to enter it as a single string, in which the row value is followed by the column value.
+
+So for example, if you want to place a black piece in the 3rd row and in the 4th column, you will have to enter the move as:
+
+    c4
+
+After you enter c4, the board will look something like this:
+
+   1  2  3  4  5  6  7  8
+a  .  .  .  .  .  .  .  .
+b  .  .  .  .  .  .  .  .
+c  .  .  .  @  .  .  .  .
+d  .  .  .  @  @  .  .  .
+e  .  .  .  @  O  .  .  .
+f  .  .  .  .  .  .  .  .
+g  .  .  .  .  .  .  .  .
+h  .  .  .  .  .  .  .  .
+
+Also if you want to skip a move, enter
+   skip
+
+
+There is one secret...
+If both players enter their username as "switch up", the game would go to a frenzy mode, where there will be no guarantee who's turn is next.........
+
+That would be it for you to know.
+Have fun, and good luck destroying your opponent!
+
+___________________________________________________
