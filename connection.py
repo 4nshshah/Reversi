@@ -1,33 +1,14 @@
-import mysql.connector
-from tabulate import tabulate
-
-
-def establishConnection(password):
+def establishConnection():
+    import mysql.connector
     mydb = mysql.connector.connect(
         host="localhost",
-        user='root',
-        password=password,
+        username="root",
+        password="ansh",
         database="othello"
     )
     cursor = mydb.cursor()
 
     return mydb, cursor
-
-
-def createDatabase(password):
-    mydb = mysql.connector.connect(
-        host="localhost",
-        user='root',
-        password=password
-
-    )
-    cursor = mydb.cursor()
-    cursor.execute('create database if not exists othello')
-    cursor.execute('use othello')
-    cursor.execute(
-        'create table if not exists leaderboard (user varchar(255), score integer default 0, wins integer default 0, total integer default 0)')
-    mydb.close()
-    cursor.close()
 
 
 def addUser(db, cursor, username):
@@ -44,14 +25,14 @@ def modifyTable(user, field, newValue, db, cursor):
 
 def displayLeaderboardAscending(db, cursor):
 
-    def pdtabulate(df): return tabulate(
-        df, headers='firstrow', tablefmt='psql')
-
     sql = "SELECT *, wins/total as ratio FROM leaderboard ORDER BY score * wins desc"
     cursor.execute(sql)
     myresult = cursor.fetchall()
-    myresult = [['USERNAME', 'SCORE', 'WINS', 'TOTAL', 'RATIO']] + myresult
-    print(pdtabulate(myresult))
+    print("   USER   |   SCORE   |   WINS   |   TOTAL   |   RATIO   |")
+    for x in myresult:
+        for j in x:
+            print(j, end='         ')
+        print()
 
 
 def getAllData(db, cursor):

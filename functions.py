@@ -1,35 +1,26 @@
-import os
-import random
-
-
 def displayArt():
+    import random
+    import os
 
-    if '\\othello\\othello' in os.path.abspath('othello'):
-        fileDirectory = os.path.abspath('reversiNames')
-        child = [fileDirectory]
-    else:
-        fileDirectory = os.path.abspath('othello')
-        child = [fileDirectory, 'reversiNames']
-
+    fileDirectory = os.path.abspath('reversiNames')
+    print(fileDirectory)
     s = 0
     for i in range(4):
         s += random.randint(1, 25)
-    if True:
-        child.append('3lo')
-        childDirectory = os.path.join(*child)
+    if s >= 85:
+        childDirectory = os.path.join(fileDirectory, '10lo')
         for i in open(childDirectory).read():
             print(i, end='')
         open(childDirectory).close()
 
     else:
         logo = random.randint(1, 9)
-        child.append(f"{str(logo)}lo")
-        childDirectory = os.path.join(*child)
+        childDirectory = os.path.join(fileDirectory, f'{str(logo)}lo')
         for i in open(childDirectory).read():
             print(i, end='')
         open(childDirectory).close()
     print('\n')
-    instructions = os.path.relpath('instructions')
+    instructions = os.path.abspath('instructions')
     print("Have you played the game before? (y/n)")
     if input() in 'Nn':
         print('\n\n')
@@ -37,6 +28,14 @@ def displayArt():
             print(i, end='')
         open(instructions).close()
         print('\n\n\n')
+
+
+def printInstructions():
+    instructions = os.path.abspath('instructions')
+    for i in open(instructions).read():
+        print(i, end='')
+    open(".\\instructions").close()
+    print('\n\n\n')
 
 
 def createBoard():
@@ -96,14 +95,6 @@ def getScore(board):
 
 
 def getMovePlayed(board, key):
-    def printInstructions():
-        import os
-        instructions = os.path.abspath('instructions')
-        for i in open(instructions).read():
-            print(i, end='')
-        open(".\\instructions").close()
-        print('\n\n\n')
-
     dic = {'@': 'Black', 'O': 'White'}
     print(f"{dic[key]}, enter your move: ")
     move = input()
