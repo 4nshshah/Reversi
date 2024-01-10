@@ -1,0 +1,2 @@
+# Reversi
+CLI Reversi Game
